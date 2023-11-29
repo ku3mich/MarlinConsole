@@ -1,7 +1,0 @@
-{
-  "Preferences": {
-    "BaudRate": 250000,
-    "CommDevice": "COM4",
-    "IsConnected": true
-  }
-}
