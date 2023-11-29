@@ -1,4 +1,5 @@
 ﻿using System.IO.Ports;
+using System.Text;
 using Spectre.Console;
 namespace MarlinConsole;
 
@@ -39,7 +40,8 @@ public class Serial : IDisposable
         Port.Handshake = Handshake.None;
         Port.ReadTimeout = 500;
         Port.WriteTimeout = 500;
-        
+        Port.Encoding = Encoding.UTF8;
+
         Port.Open();
     }
 
