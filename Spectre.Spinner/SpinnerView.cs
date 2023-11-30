@@ -42,13 +42,13 @@ public class SpinnerView : IRenderable
     public void Decrease()
     {
         if (Value - Step >= Min)
-            Value = Math.Round(Value - Step, 4, MidpointRounding.ToZero);
+            Value = Math.Round(Value - Step, _decimals, MidpointRounding.AwayFromZero);
     }
 
     public void Increase()
     {
         if (Value + Step <= Max)
-            Value = Math.Round(Value + Step, 4, MidpointRounding.ToZero);
+            Value = Math.Round(Value + Step, _decimals, MidpointRounding.AwayFromZero);
     }
 
     public Measurement Measure(RenderOptions options, int maxWidth)

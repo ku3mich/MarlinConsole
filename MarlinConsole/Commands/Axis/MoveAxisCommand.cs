@@ -29,7 +29,7 @@ public class MoveAxisCommand(IAnsiConsole console, GCode gcode, GCodeParser gcod
             .Step(model.Step)
             .OnChangeAsync(async s =>
             {
-                var result = await gcode.ExecuteAsync($"G0 {model.Axis}{s}", Timeouts.Small, ct);
+                var result = await gcode.ExecuteAsync($"G0 {Math.Round(s, 3, MidpointRounding.AwayFromZero)}{s}", Timeouts.Small, ct);
 
                 if (result == null)
                     return s;
