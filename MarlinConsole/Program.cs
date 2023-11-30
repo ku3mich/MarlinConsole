@@ -20,6 +20,9 @@ partial class Program
         var userProfile = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile);
         var provider = new PhysicalFileProvider(userProfile);
 
+        const string preferencesFile = "marlinconsole.preferences.json";
+        const string historyFile = "marlinconsole.history.json";
+
         await Host.CreateDefaultBuilder(args)
             .UseNLog()
             .ConfigureLogging(c =>
@@ -29,8 +32,8 @@ partial class Program
             .ConfigureAppConfiguration((h, builder) =>
             {
                 builder
-                    .AddJsonFile(provider, "marlinconsole.preferences.json", optional: true, reloadOnChange: false)
-                    .AddJsonFile(provider, "marlinconsole.history.json", optional: true, reloadOnChange: false);
+                    .AddJsonFile(provider, preferencesFile, optional: true, reloadOnChange: false)
+                    .AddJsonFile(provider, historyFile, optional: true, reloadOnChange: false);
 
                 builder
                     .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true)
@@ -41,8 +44,8 @@ partial class Program
             {
                 var config = context.Configuration;
 
-                services.ConfigureWritableWithExplicitPath<Preferences>(config.GetSection("Preferences"), userProfile, file: "marlinconsole.preferences.json");
-                services.ConfigureWritableWithExplicitPath<History>(config.GetSection("History"), userProfile, file: "marlinconsole.history.json");
+                services.ConfigureWritableWithExplicitPath<Preferences>(config.GetSection("Preferences"), userProfile, preferencesFile);
+                services.ConfigureWritableWithExplicitPath<History>(config.GetSection("History"), userProfile, historyFile);
 
                 services.AddHostedService<ConsoleHostedService>();
                 services.AddSingleton(s => AnsiConsole.Console);
