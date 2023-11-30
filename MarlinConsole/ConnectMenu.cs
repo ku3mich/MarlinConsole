@@ -29,7 +29,7 @@ public class ConnectMenu(IAnsiConsole console)
         var ports = SerialPort.GetPortNames();
 
         var port = await console
-            .PromptAsync<SimpleSelectPrompt, string>(ct,
+            .PromptAsync<SimpleSelectPrompt, string?>(ct,
                 p => p.Options(ports).AddOptions((Devices.Tcp, "TCP Port")));
 
         return port;

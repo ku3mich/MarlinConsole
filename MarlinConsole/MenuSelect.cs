@@ -3,7 +3,7 @@
 [Mark(Register.Singleton)]
 public class MenuSelect(Select select)
 {
-    static readonly Dictionary<string, Func<Select, Func<string>>> Menus = new()
+    static readonly Dictionary<string, Func<Select, Func<string?>>> Menus = new()
     {
         [Items.Move.Menu] = s => s.Move,
         [Items.Move.AxisMenu] = s => s.AxisMove,
@@ -13,7 +13,7 @@ public class MenuSelect(Select select)
     public Task<string?> Select(CancellationToken ct)
     {
         string? item = null;
-        Stack<Func<string>> menuStack = new();
+        Stack<Func<string?>> menuStack = new();
         menuStack.Push(select.Menu);
 
         while (!ct.IsCancellationRequested && menuStack.Count > 0)
@@ -23,8 +23,8 @@ public class MenuSelect(Select select)
             if (item == null)
                 continue;
 
-            Func<string>? findMenu(string item) =>
-                Menus.TryGetValue(item, out Func<Select, Func<string>>? value) ? value(select) : null;
+            Func<string?>? findMenu(string item) =>
+                Menus.TryGetValue(item, out Func<Select, Func<string?>>? value) ? value(select) : null;
 
             var nextMenu = findMenu(item);
 

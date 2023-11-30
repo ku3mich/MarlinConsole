@@ -2,10 +2,10 @@
 
 namespace Spectre.Selection;
 
-public class SimpleSelectPrompt : IPrompt<string>
+public class SimpleSelectPrompt : IPrompt<string?>
 {
     public SimpleSelectView View { get; } = new SimpleSelectView();
-    public string Show(IAnsiConsole console)
+    public string? Show(IAnsiConsole console)
         => ShowAsync(console, CancellationToken.None).GetAwaiter().GetResult();
 
     public SimpleSelectPrompt()
@@ -30,7 +30,7 @@ public class SimpleSelectPrompt : IPrompt<string>
         return this;
     }
 
-    public async Task<string> ShowAsync(IAnsiConsole console, CancellationToken cancellationToken)
+    public async Task<string?> ShowAsync(IAnsiConsole console, CancellationToken cancellationToken)
     {
         var live = console.Live(View);
 

@@ -6,7 +6,7 @@ namespace MarlinConsole;
 [Mark(Register.Singleton)]
 public class Select(IAnsiConsole console)
 {
-    public string Menu()
+    public string? Menu()
     {
         var prompt = new SimpleSelectPrompt()
             .Options(
@@ -17,7 +17,7 @@ public class Select(IAnsiConsole console)
         return console.Prompt(prompt);
     }
 
-    public string Move()
+    public string? Move()
     {
         var prompt = new SimpleSelectPrompt()
             .Options(
@@ -28,7 +28,7 @@ public class Select(IAnsiConsole console)
         return console.Prompt(prompt);
     }
 
-    public string AxisMove()
+    public string? AxisMove()
     {
         var prompt = new SimpleSelectPrompt()
             .Options(
@@ -38,7 +38,7 @@ public class Select(IAnsiConsole console)
         return console.Prompt(prompt);
     }
 
-    public string Settings()
+    public string? Settings()
     {
         var prompt = new SimpleSelectPrompt()
             .Options(
