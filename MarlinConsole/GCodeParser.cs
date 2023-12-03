@@ -2,7 +2,7 @@
 
 namespace MarlinConsole;
 
-[Mark(Register.Singleton)]
+[Mark(By.Register, Injects.Singleton)]
 public class GCodeParser
 {
     public int? ExtractInt(string code, string parameter)

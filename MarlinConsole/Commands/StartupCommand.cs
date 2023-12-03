@@ -4,7 +4,7 @@ using Microsoft.Extensions.Options;
 
 namespace MarlinConsole.Commands;
 
-[Mark(Register.Singleton)]
+[Mark(By.Register, Injects.Singleton)]
 public class StartupCommand(INote note, IOptions<Preferences> options, IOptions<History> history, SerialConnectCommand connect) : IAsyncCommand
 {
     public async Task ExecuteAsync(CancellationToken ct)

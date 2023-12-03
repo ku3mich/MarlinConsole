@@ -4,7 +4,7 @@ using System.Text.RegularExpressions;
 
 namespace MarlinConsole;
 
-[Mark(Register.Singleton)]
+[Mark(By.Register, Injects.Singleton)]
 public partial class GCode(Serial serial, INote note)
 {
     static string GetGCodeCheckSum(string gcode)

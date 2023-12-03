@@ -4,7 +4,7 @@ using MarlinConsole.Commands.Connection;
 
 namespace MarlinConsole;
 
-[Mark(Register.Singleton)]
+[Mark(By.Register, Injects.Singleton)]
 public class CommandsProvider
 {
     public readonly Dictionary<string, Type> Commands = new()

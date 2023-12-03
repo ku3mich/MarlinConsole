@@ -5,7 +5,7 @@ using Spectre.Spinner;
 
 namespace MarlinConsole.Commands.Axis;
 
-[Mark(Register.Singleton)]
+[Mark(By.Register, Injects.Singleton)]
 public class MoveAxisCommand(IAnsiConsole console, GCode gcode, GCodeParser gcodeParser) : IAsyncAction<MoveModel>
 {
     public async Task ExecuteAsync(MoveModel model, CancellationToken ct)

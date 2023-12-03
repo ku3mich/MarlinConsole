@@ -3,7 +3,7 @@ using Spectre.Console;
 
 namespace MarlinConsole.Infra;
 
-[Mark(Register.Singleton, Register.As, typeof(INote))]
+[Mark(By.Register, Injects.Singleton, As.Type, typeof(INote))]
 public class Note(IAnsiConsole console, ILogger<Note> logger) : INote
 {
     public NoteLevel ConsoleLevel { get; set; }

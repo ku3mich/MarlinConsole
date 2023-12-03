@@ -2,7 +2,7 @@
 
 namespace MarlinConsole;
 
-[Mark(Register.Transient)]
+[Mark(By.Register, Injects.Transient)]
 public class AsyncCommandInvoker
 {
     private readonly IServiceProvider provider;

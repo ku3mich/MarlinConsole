@@ -3,7 +3,7 @@ using MarlinConsole.Models;
 
 namespace MarlinConsole.Commands.Axis;
 
-[Mark(Register.Singleton)]
+[Mark(By.Register, Injects.Singleton)]
 public class MoveAxisZCommand(SelectMoveStepCommand moveSelect, MoveAxisCommand moveAxis) : IAsyncCommand, IHasHelp
 {
     public string Help { get; } = "Interactively moves along Z Axis";

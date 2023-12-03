@@ -2,7 +2,7 @@
 
 namespace MarlinConsole.Commands.Axis;
 
-[Mark(Register.Singleton)]
+[Mark(By.Register, Injects.Singleton)]
 public class MoveHomeCommand(IAnsiConsole console, GCode gcode) : IAsyncCommand, IHasHelp
 {
     public async Task ExecuteAsync(CancellationToken ct)

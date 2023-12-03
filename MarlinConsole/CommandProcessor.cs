@@ -2,7 +2,7 @@
 
 namespace MarlinConsole;
 
-[Mark(Register.Singleton)]
+[Mark(By.Register, Injects.Singleton)]
 public class CommandProcessor(IAnsiConsole console, CommandsProvider commandsProvider, AsyncCommandInvoker commandInvoker, GCode gcode)
 {
     public async Task Process(string command, CancellationToken ct)

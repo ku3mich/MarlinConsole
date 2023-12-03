@@ -1,6 +1,8 @@
 ﻿global using MarlinConsole.Abstractions;
 global using MarlinConsole.Extensions;
 global using MarlinConsole.Infra;
+global using Marks.Annotations;
+
 using MarlinConsole.Models;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -10,6 +12,7 @@ using NLog.Extensions.Hosting;
 using NLog.Extensions.Logging;
 using Nogic.WritableOptions;
 using Spectre.Console;
+using Extensions.Marks.DependencyInjection;
 
 namespace MarlinConsole;
 

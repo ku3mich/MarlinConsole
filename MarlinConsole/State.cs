@@ -1,6 +1,6 @@
 ﻿namespace MarlinConsole;
 
-[Mark(Register.Singleton)]
+[Mark(By.Register, Injects.Singleton)]
 public class State(Serial serial)
 {
     public bool IsConnected => serial.Port.IsOpen;

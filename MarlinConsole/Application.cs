@@ -1,10 +1,11 @@
-﻿using MarlinConsole.Commands;
+﻿using Marks.Annotations;
+using MarlinConsole.Commands;
 using MarlinConsole.Models;
 using Nogic.WritableOptions;
 
 namespace MarlinConsole;
 
-[Mark(Register.Singleton)]
+[Mark(By.Register, Injects.Singleton)]
 public class Application(CommandProcessor processor, StartupCommand startup, IWritableOptions<History> history)
 {
     public async Task Run(CancellationToken ct)

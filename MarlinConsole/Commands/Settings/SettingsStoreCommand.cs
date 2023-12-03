@@ -3,7 +3,7 @@ using Spectre.Console;
 
 namespace MarlinConsole.Commands.Settings;
 
-[Mark(Register.Singleton)]
+[Mark(By.Register, Injects.Singleton)]
 public class SettingsStoreCommand(IAnsiConsole console, GCode gcode) : IAsyncCommand, IHasHelp
 {
     public Task ExecuteAsync(CancellationToken ct) =>

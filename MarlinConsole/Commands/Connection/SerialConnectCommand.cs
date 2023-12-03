@@ -2,7 +2,7 @@
 
 namespace MarlinConsole.Commands.Connection;
 
-[Mark(Register.Singleton)]
+[Mark(By.Register, Injects.Singleton)]
 public class SerialConnectCommand(Serial serial, Manager manager, INote note) : IAsyncAction<ConnectModel>
 {
     public Task ExecuteAsync(ConnectModel parameter, CancellationToken ct)

@@ -3,7 +3,7 @@ using Spectre.Console;
 
 namespace MarlinConsole.Commands;
 
-[Mark(Register.Singleton)]
+[Mark(By.Register, Injects.Singleton)]
 public class HelpCommand(IAnsiConsole console, CommandsProvider commands, IServiceProvider serviceProvider) : IAsyncCommand, IHasHelp
 {
     public Task ExecuteAsync(CancellationToken ct)

@@ -3,7 +3,7 @@ using MarlinConsole.Models;
 
 namespace MarlinConsole.Commands.Connection;
 
-[Mark(Register.Singleton)]
+[Mark(By.Register, Injects.Singleton)]
 public class ConnectSelectCommand(ConnectMenu connectMenu) : IAsyncFunction<ConnectModel?>
 {
     public async Task<ConnectModel?> ExecuteAsync(CancellationToken ct)

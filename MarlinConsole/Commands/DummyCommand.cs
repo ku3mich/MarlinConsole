@@ -2,7 +2,7 @@
 
 namespace MarlinConsole.Commands;
 
-[Mark(Register.Singleton)]
+[Mark(By.Register, Injects.Singleton)]
 public class DummyCommand(IAnsiConsole console, INote note) : IAsyncCommand, IHasHelp
 {
     public Task ExecuteAsync(CancellationToken ct)

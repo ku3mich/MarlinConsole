@@ -3,7 +3,7 @@ using Spectre.Selection;
 
 namespace MarlinConsole.Commands.Axis;
 
-[Mark(Register.Singleton)]
+[Mark(By.Register, Injects.Singleton)]
 public class SelectMoveStepCommand(IAnsiConsole console) : IAsyncFunction<double?>
 {
     public async Task<double?> ExecuteAsync(CancellationToken ct)

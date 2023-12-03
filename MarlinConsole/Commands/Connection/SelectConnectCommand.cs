@@ -1,6 +1,6 @@
 ﻿namespace MarlinConsole.Commands.Connection;
 
-[Mark(Register.Singleton)]
+[Mark(By.Register, Injects.Singleton)]
 public class SelectConnectCommand(ConnectSelectCommand select, SerialConnectCommand connect, SaveConnectionStateCommand save) : IAsyncCommand, IHasHelp
 {
     public string Help { get; } = "Connects to a communication device";

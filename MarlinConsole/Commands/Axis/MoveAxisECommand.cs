@@ -3,7 +3,7 @@ using MarlinConsole.Models;
 
 namespace MarlinConsole.Commands.Axis;
 
-[Mark(Register.Singleton)]
+[Mark(By.Register, Injects.Singleton)]
 public class MoveAxisECommand(SelectMoveStepCommand moveSelect, MoveAxisCommand moveAxis, GCode gcode) : IAsyncCommand, IHasHelp
 {
     public string Help { get; } = "Interactively moves along E Axis";

@@ -3,7 +3,7 @@ using MarlinConsole.Commands.Settings;
 
 namespace MarlinConsole.Commands;
 
-[Mark(Register.Singleton)]
+[Mark(By.Register, Injects.Singleton)]
 public class MenuCommand(MenuSelect menuSelect, AsyncCommandInvoker asyncCommandInvoker) : IAsyncCommand, IHasHelp
 {
     private static readonly Dictionary<string, Type> Commands = new()

@@ -3,7 +3,7 @@ using Spectre.Selection;
 
 namespace MarlinConsole;
 
-[Mark(Register.Singleton)]
+[Mark(By.Register, Injects.Singleton)]
 public class Select(IAnsiConsole console)
 {
     public string? Menu()
