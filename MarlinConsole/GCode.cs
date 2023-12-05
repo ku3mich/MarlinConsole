@@ -43,8 +43,8 @@ public partial class GCode(Serial serial, INote note)
     [GeneratedRegex("(;.*)$", RegexOptions.Multiline)]
     private static partial Regex CommentsReplaceRegex();
 
-    [GeneratedRegex("ok\n$", RegexOptions.Multiline)]
-    private static partial Regex StripOKRegex();
+    [GeneratedRegex("^ok( [A-Z][0-9]+)*\n$", RegexOptions.Multiline)]
+    public static partial Regex StripOKRegex();
 
     [GeneratedRegex("^echo:[ ]*", RegexOptions.Multiline)]
     private static partial Regex StripEchoRegex();
@@ -72,7 +72,7 @@ public partial class GCode(Serial serial, INote note)
             var line = port.ReadExisting();
             sb.Append(line);
 
-            if (line.Length >= 3 && line[^3..] == "ok\n")
+            if (line.Length >= 3 && StripOKRegex().IsMatch(line))
                 got = true;
         }
 
