@@ -17,14 +17,16 @@ public class Application(CommandProcessor processor, StartupCommand startup, IWr
             // TODO: async
             var i = ReadLine.Read("# ");
 
-            ReadLine.AddHistory(i);
-            var lines = ReadLine.GetHistory();
-
-            history.Update(new History
+            if (!string.IsNullOrEmpty(i))
             {
-                Lines = lines.Count > 1024 ? lines.Skip(lines.Count - 1024).ToArray() : lines.ToArray()
-            }, false);
+                ReadLine.AddHistory(i);
+                var lines = ReadLine.GetHistory();
 
+                history.Update(new History
+                {
+                    Lines = lines.Count > 1024 ? lines.Skip(lines.Count - 1024).ToArray() : lines.ToArray()
+                }, false);
+            }
 
             if (i == "/q")
                 break;
