@@ -15,6 +15,7 @@ public class ConnectMenu(IAnsiConsole console)
                 "250000",
                 "230400",
                 "115200",
+		"76800",
                 "57600",
                 "38400",
                 "19200",
